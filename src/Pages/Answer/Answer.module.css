@@ -1,0 +1,112 @@
+.answer__container {
+  width: 100%;
+  background-color: rgb(243, 240, 240);
+  /* margin-top: 20px; */
+  padding: 40px 30px;
+}
+.answer__wrapper {
+  width: 100%;
+  padding: 40px 45px;
+  display: flex;
+  align-items: baseline;
+  /* justify-content: space-between; */
+  flex-direction: column;
+  gap: 40px;
+  /* border: 1px solid rgb(137, 136, 136); */
+}
+.answer__container .answer__wrapper hr {
+  width: 100%;
+  border: 1px solid rgb(230, 228, 228);
+}
+
+.answer__container .answer__wrapper h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.question__detail {
+  width: 100%;
+}
+.question__detail h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 7px;
+  /* text-decoration: underline;
+  text-decoration-color: #f6912b;
+  text-decoration-thickness: 3px; */
+}
+.answer__container .answer__wrapper .question__detail hr {
+  width: 8%;
+  border: 2px solid #f6912b;
+}
+.question__detail h6 {
+  font-size: 15px;
+  padding-top: 12px;
+  text-align: start;
+}
+
+.answer__community h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+/* adding boarder for all each answer  */
+.all__questions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding: 10px 0px 10px 40px;
+  border: 1px solid rgb(219, 216, 216);
+}
+.all__question {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+  /* padding: 10px 0px 10px 40px; */
+}
+.question__user {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.question__answer h6 {
+  text-align: start;
+}
+.question__user h6,
+.question__answer h6 {
+  font-size: 16px;
+  font-style: initial;
+}
+.question__delete {
+  padding-right: 10px;
+  display: none;
+}
+.all__questions:hover .question__delete {
+  display: block;
+}
+
+.post__answer {
+  width: 100%;
+  display: flex;
+  /* padding: 40px 45px; */
+  align-items: baseline;
+  flex-direction: column;
+  gap: 20px;
+}
+.post__answer textarea {
+  width: 100%;
+  padding: 10px;
+}
+
+.post__answer button {
+  padding: 10px;
+  border: none;
+  background-color: #516cf0;
+  color: #fff;
+  border-radius: 5px;
+}
+.text__area {
+  width: 100%;
+}

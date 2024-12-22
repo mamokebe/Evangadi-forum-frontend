@@ -1,0 +1,38 @@
+.container {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #f3f4f6;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.link {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.signInButton {
+  background-color: #4e73df;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formWrapper {
+  margin: 50px auto;
+  width: 400px;
+}

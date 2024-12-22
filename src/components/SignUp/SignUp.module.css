@@ -1,0 +1,119 @@
+.signup__container {
+  width: 80%;
+  height: 460px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px 40px;
+}
+.signup__wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.signup__title {
+  margin-bottom: 25px;
+}
+.signup__title h4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+.signup__title p span {
+  color: #f6912b;
+  cursor: pointer;
+}
+.signup__wrapper input {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+.signup__wrapper .multi__inputs {
+  display: flex;
+  gap: 10px;
+}
+
+/* Custom styles for the input field */
+.password__input {
+  position: relative;
+  width: 100%;
+}
+.signup__wrapper input:focus {
+  border-bottom: 2px solid #f6912b;
+  outline: none;
+}
+
+/* Icon styles */
+.password_eye_icon {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  transform: translateY(-50%); /* Centers the icon vertically */
+  color: gray;
+  opacity: 0.8;
+  cursor: pointer;
+  font-size: 18px; /* Adjust the size of the icon */
+}
+.error {
+  border-color: red;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* Hover effect on the icon */
+.password_eye_icon:hover {
+  opacity: 1;
+  color: #f6912b;
+}
+.signup__terms {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.signup__wrapper button {
+  width: 100%;
+  padding: 15px 0px;
+  color: white;
+  font-size: 18px;
+  background-color: #516cf0;
+  border: none;
+  cursor: pointer;
+}
+.signup__wrapper button:hover {
+  opacity: 1;
+  background-color: #2346f5;
+}
+@media (max-width: 768px) {
+  .signup__title h4 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .signup__wrapper {
+    margin-top: 10px;
+  }
+  .signup__wrapper button {
+    width: 100%;
+    padding: 10px 0px;
+    color: white;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup__container {
+    padding-top: 20px;
+    height: auto;
+    margin-left: 35px;
+    margin-top: -30px;
+    margin-bottom: -50px;
+  }
+  .multi__inputs {
+    flex-direction: column;
+  }
+  .signup__title p {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,121 @@
+.about__container {
+  background-image: url("../../assets/images/bg-svg-f.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(240, 242, 243);
+  padding-top: 130px;
+  padding-bottom: 170px;
+}
+.about__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  /* gap: 10px; */
+  height: 460px;
+}
+
+.about__left {
+  flex: 1;
+  margin-left: 25%;
+  margin-right: -5%;
+}
+.about__right {
+  flex: 1;
+}
+.about__right small {
+  color: #f6912b;
+  font-size: 18px;
+}
+.about__right h1 {
+  font-size: 26px;
+  font-family: Poppins, sans-serif;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(310deg, #000, #e33f00);
+}
+.about__right p {
+  margin-bottom: 10px;
+  line-height: 30px;
+  width: 75%;
+}
+.about__right button {
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f6912b;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 1050px) {
+  .about__wrapper {
+    height: auto; /* Adjust height */
+    gap: 20px;
+  }
+
+  .about__left {
+    margin-left: 20px;
+    /* margin-right: -5%; */
+  }
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets (max-width: 768px) */
+/* @media screen and (min-width: 768px) and (max-width:1024px) { */
+@media (max-width: 768px) {
+  .about__wrapper {
+    height: auto; /* Adjust height */
+    gap: 0px;
+  }
+
+  /* .about__left {
+    margin-left: 30px;
+    text-align: center;  Center text for better readability 
+  } */
+  .about__left {
+    margin-left: 5%;
+    margin-right: -5%;
+  }
+
+  .about__right p {
+    width: 90%; /* Increase paragraph width */
+    line-height: 28px; /* Slightly reduce line height */
+  }
+
+  .about__right h1 {
+    font-size: 22px; /* Reduce heading size */
+  }
+
+  .about__right small {
+    font-size: 16px; /* Adjust font size */
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .about__container {
+    padding-top: 80px; /* Reduce padding for smaller screens */
+    padding-bottom: 100px;
+  }
+
+  .about__wrapper {
+    gap: 15px; /* Smaller gap */
+  }
+  .about__right {
+    display: none;
+  }
+  .about__container {
+    align-items: center;
+  }
+  .about__right {
+    flex: 0;
+  }
+  .about__left {
+    flex: 2;
+  }
+}
