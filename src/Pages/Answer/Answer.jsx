@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { storeUser } from "../../Utility/action";
 import { toast } from "react-toastify";
 
-const Answer = ({ user, storeUser }) => {
+const Answer = ({ user, storeUser, answersPerPage }) => {
   const token = localStorage.getItem("token");
 
   const { questionId: postId } = useParams();
@@ -19,9 +19,10 @@ const Answer = ({ user, storeUser }) => {
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [userData, setUserData] = useState([]);
+  // Current page state
+  const [currentPage, setCurrentPage] = useState(1);
 
   const answerDom = useRef();
-  
 
   const checkUserLogged = async () => {
     try {
@@ -67,12 +68,12 @@ const Answer = ({ user, storeUser }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      if (data.length === 0) {
-        setAnswers([]);
-        toast.error("No answer for this question ", {
-          position: "top-center",
-        });
-      }
+      // if (data.length === 0) {
+      //   setAnswers([]);
+      //   toast.error("No answer for this question ", {
+      //     position: "top-center",
+      //   });
+      // }
       setAnswers(data.reverse());
     } catch (error) {
       console.error(error.message);
@@ -128,6 +129,18 @@ const Answer = ({ user, storeUser }) => {
       });
     }
   };
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(answers.length / answersPerPage);
+  // Function to handle page change
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  // Calculate the current answers to display based on the page
+  const indexOfLastAnswer = currentPage * answersPerPage;
+  const indexOfFirstAnswer = indexOfLastAnswer - answersPerPage;
+  const currentAnswers = answers.slice(indexOfFirstAnswer, indexOfLastAnswer);
+
   //fetching data when the component mount.(it represent the react)
   useEffect(() => {
     if (user) {
@@ -139,7 +152,9 @@ const Answer = ({ user, storeUser }) => {
   return (
     <div className={classes.answer__container}>
       <div className={classes.answer__wrapper}>
-        <h2>Question</h2>
+        <div className={classes.answer_question_header}>
+          <h2>Question</h2>
+        </div>
         <div className={classes.question__detail}>
           <h4>{question?.title}</h4>
           <hr />
@@ -150,7 +165,7 @@ const Answer = ({ user, storeUser }) => {
           <h1>Answer From The Community</h1>
         </div>
         <hr />
-        {answers?.map((singleAnswer, i) => {
+        {currentAnswers?.map((singleAnswer, i) => {
           return (
             <>
               <div key={i} className={classes.all__questions}>
@@ -176,11 +191,37 @@ const Answer = ({ user, storeUser }) => {
             </>
           );
         })}
+
+        {/* Pagination Controls */}
+        <div className={classes.answer__pagination}>
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          {[...Array(totalPages).keys()].map((number) => (
+            <button
+              key={number + 1}
+              onClick={() => paginate(number + 1)}
+              className={number + 1 === currentPage ? `${classes.active}` : ""}
+            >
+              {number + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
         <form onSubmit={postAnswer} className={classes.post__answer}>
           <div className={classes.text__area}>
             <textarea rows="4" ref={answerDom} placeholder="Your Answer ..." />
           </div>
-
           <button type="submit">Post Answer</button>
         </form>
       </div>

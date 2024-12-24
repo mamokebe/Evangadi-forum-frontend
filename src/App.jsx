@@ -14,10 +14,16 @@ const App = () => {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route path="/" element={<Landing />}></Route>
-          <Route path="/dashboard" element={<Home />}></Route>
+          <Route index element={<Landing />}></Route>
+          <Route
+            path="/dashboard"
+            element={<Home questionsPerPage={3} />}
+          ></Route>
           <Route path="/question" element={<Question />}></Route>
-          <Route path="/answer/:questionId" element={<Answer />} />
+          <Route
+            path="/answer/:questionId"
+            element={<Answer answersPerPage={3} />}
+          />
         </Route>
       </Routes>
     </>

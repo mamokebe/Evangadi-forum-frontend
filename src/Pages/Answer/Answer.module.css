@@ -8,7 +8,7 @@
   width: 100%;
   padding: 40px 45px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   /* justify-content: space-between; */
   flex-direction: column;
   gap: 40px;
@@ -23,7 +23,9 @@
   font-size: 20px;
   text-transform: uppercase;
 }
-.question__detail {
+.question__detail,
+.answer_question_header,
+.answer__community {
   width: 100%;
 }
 .question__detail h4 {
@@ -94,6 +96,22 @@
   align-items: baseline;
   flex-direction: column;
   gap: 20px;
+}
+.answer__pagination {
+  display: flex;
+  align-items: center !important;
+  align-content: center !important;
+  gap: 10px;
+}
+
+.answer__pagination button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.answer__pagination button.active {
+  background-color: #516cf0;
+  color: white;
 }
 .post__answer textarea {
   width: 100%;

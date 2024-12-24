@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { storeUser, userPassword, userSignUp } from "../../Utility/action";
-
 import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import axios from "../../API/axios";
 import classes from "./Login.module.css";
-import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
 // react-redux
-
+import { connect } from "react-redux";
 // actions
+import { storeUser, userPassword, userSignUp } from "../../Utility/action";
 
 const Login = ({ storeUser, userSignUp, userPassword, password }) => {
   //hooks to control inputs data
@@ -29,20 +26,22 @@ const Login = ({ storeUser, userSignUp, userPassword, password }) => {
       password: passwordDom.current.value,
     });
 
- // Email validation
-     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-     if (!email) {
-       toast.error("Email is required", { position: "top-center" });
-       return false;
-     } else if (!emailPattern.test(email)) {
-       toast.error("Please enter a valid email address", { position: "top-center" });
-       return false;
-     }
+    // Email validation
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!email) {
+      toast.error("Email is required", { position: "top-center" });
+      return false;
+    } else if (!emailPattern.test(email)) {
+      toast.error("Please enter a valid email address", {
+        position: "top-center",
+      });
+      return false;
+    }
     // Password validation
     if (!password) {
-       toast.error("Password is required", { position: "top-center" });
-       return false;
-    } 
+      toast.error("Password is required", { position: "top-center" });
+      return false;
+    }
     return true;
   };
   //check for logged in user
@@ -122,7 +121,7 @@ const Login = ({ storeUser, userSignUp, userPassword, password }) => {
               className={classes.password_eye_icon}
               onClick={() => userPassword()}
             >
-              {password ?  <BsEye />:<BsEyeSlash />}
+              {password ? <BsEye /> : <BsEyeSlash />}
             </span>
           </div>
         </div>

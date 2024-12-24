@@ -15,7 +15,6 @@ const Question = ({ storeUser }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-
   const checkUserLogged = async () => {
     try {
       const { data } = await axios.get("/user/check", {
@@ -23,7 +22,7 @@ const Question = ({ storeUser }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      storeUser(data.username);
+      storeUser(data.userName);
       // setUserId(data)
       console.log(data);
     } catch (error) {
@@ -37,7 +36,7 @@ const Question = ({ storeUser }) => {
   const postQuestion = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
+      const { data } = await axios.post(
         "/question",
         {
           title: titleDom.current.value,
@@ -52,6 +51,9 @@ const Question = ({ storeUser }) => {
       //after post question users navigate to dashboard
       titleDom.current.value = "";
       descDom.current.value = "";
+      toast.success(data.message, {
+        position: "top-center",
+      });
       setTimeout(() => {
         navigate("/dashboard");
       }, 1300);
@@ -101,7 +103,6 @@ const Question = ({ storeUser }) => {
     </div>
   );
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return {

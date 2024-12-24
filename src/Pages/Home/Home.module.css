@@ -39,9 +39,14 @@
 .home_search_question {
   width: 100%;
   padding: 0px 40px;
+  margin-bottom: -20px !important;
+}
+.home_search_input {
+  width: 100%;
+  padding: 0px 40px;
 }
 
-.home_search_question input {
+.home_search_input input {
   width: 100%;
   padding: 10px 10px;
 }
@@ -85,6 +90,19 @@
 .question__middle h6 {
   font-size: 14px;
   text-align: start;
+}
+.question__pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.question__pagination button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.question__pagination button.active {
+  background-color: #516cf0;
+  color: white;
 }
 @media (max-width: 768px) {
   .home__header h4 {
