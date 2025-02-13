@@ -4,7 +4,7 @@ const axiosInstance = axios.create({
   // baseURL: "http://localhost:3003/api",
   //deployed base url
   //mine
-  baseURL: "https://evangadi-forum-backend-mnq9.onrender.com/api",
+  baseURL: "https://evangadi-forum-backend-iflc.onrender.com/api",
   //group-2
   // baseURL: "https://evangadi-backend-fexo.onrender.com/api",
 });
