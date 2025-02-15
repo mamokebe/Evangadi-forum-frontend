@@ -8,9 +8,20 @@ import { useNavigate } from "react-router-dom";
 // react-redux
 import { connect } from "react-redux";
 // actions
-import { storeUser, userPassword, userSignUp } from "../../Utility/action";
+import {
+  storeUser,
+  userPassword,
+  userSignUp,
+  userReset,
+} from "../../Utility/action";
 
-const Login = ({ storeUser, userSignUp, userPassword, password }) => {
+const Login = ({
+  storeUser,
+  userSignUp,
+  userReset,
+  userPassword,
+  password,
+}) => {
   //hooks to control inputs data
   const emailDom = useRef();
   const passwordDom = useRef();
@@ -126,7 +137,7 @@ const Login = ({ storeUser, userSignUp, userPassword, password }) => {
           </div>
         </div>
         <div className={classes.signin__terms}>
-          <small>Forget password?</small>
+          <small onClick={() => userReset()}>Forget password?</small>
         </div>
         <button type="submit">Login</button>
       </div>
@@ -144,6 +155,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     storeUser: (users) => dispatch(storeUser(users)),
     userSignUp: () => dispatch(userSignUp()),
+    userReset: () => dispatch(userReset()),
     userPassword: () => dispatch(userPassword()),
   };
 };

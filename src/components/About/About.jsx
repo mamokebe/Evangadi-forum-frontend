@@ -2,16 +2,17 @@ import React from "react";
 import classes from "./About.module.css";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
+import ResetPassword from "../ResetPassword/ResetPassword";
 import { connect } from "react-redux";
 
-const About = ({ signup }) => {
+const About = ({ signup, reset }) => {
   return (
     <div className={classes.about__container}>
       <div className={classes.about__wrapper}>
         <div className={classes.about__left}>
           {/* <Login /> */}
           {/* <SignUp /> */}
-          {signup ? <SignUp /> : <Login />}
+          {signup ? <SignUp /> : reset ? <ResetPassword /> : <Login />}
         </div>
         <div className={classes.about__right}>
           <small className={classes.about}>About</small>
@@ -38,6 +39,7 @@ const About = ({ signup }) => {
 const mapStateToProps = (state) => {
   return {
     signup: state.signup,
+    reset: state.reset,
   };
 };
 

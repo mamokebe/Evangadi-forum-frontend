@@ -1,6 +1,7 @@
 import {
   USER_SIGNUP,
   USER_SIGNIN,
+  USER_RESET,
   USER_PASSWORD,
   STORE_USER,
   REMOVE_USER,
@@ -8,6 +9,7 @@ import {
 //define object state ( default initial state)
 const initialState = {
   signup: false,
+  reset: false,
   user: "",
   password: false,
 };
@@ -20,21 +22,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         signup: true,
       };
+    case USER_RESET:
+      return {
+        ...state,
+        reset: true,
+      };
     case USER_SIGNIN:
       return {
         ...state,
         signup: false,
-      };
-    case STORE_USER:
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case REMOVE_USER:
-    case USER_SIGNIN:
-      return {
-        ...state,
-        signup: false,
+        reset: false,
       };
     case STORE_USER:
       return {

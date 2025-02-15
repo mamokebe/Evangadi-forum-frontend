@@ -41,11 +41,14 @@ const Header = ({ removeUser }) => {
     <div className={classes.header__container}>
       <div className={classes.header__wrapper}>
         <div className={classes.header__logo}>
-          <Link to="/dashboard"><img src={logo} alt="" /></Link>
-          
+          <Link to="/dashboard">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className={classes.header__title}>
-          <Link to="/dashboard"><p>Home</p></Link>
+          <Link to="/">
+            <p>Home</p>
+          </Link>
           <p>How it works</p>
           {token && <button onClick={logoutUser}>logOut</button>}
           {!token && <button>SIGN IN</button>}

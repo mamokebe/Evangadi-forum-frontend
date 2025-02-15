@@ -1,6 +1,7 @@
 import {
   USER_SIGNUP,
   USER_SIGNIN,
+  USER_RESET,
   USER_PASSWORD,
   STORE_USER,
   REMOVE_USER,
@@ -15,6 +16,11 @@ export const userSignUp = () => {
 export const userSignIn = () => {
   return {
     type: USER_SIGNIN,
+  };
+};
+export const userReset = () => {
+  return {
+    type: USER_RESET,
   };
 };
 export const userPassword = () => {
